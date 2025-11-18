@@ -1,4 +1,4 @@
-# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
+<img width="415" height="185" alt="image" src="https://github.com/user-attachments/assets/f206d99a-531c-4c6c-ba58-8a130bdde8b1" /># 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
 # IAPR-5- Module 5 - FoC
 ## 9. Implementation of recursion.
 ## 10. Implementation of programs using pointer arithmetic.
@@ -39,7 +39,40 @@
 ### Step 12: 
   Stop
 # Program:
+```
+#include <stdio.h>
+
+void swapByValue(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("Inside swapByValue: a = %d, b = %d\n", a, b);
+}
+
+void swapByReference(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    printf("Inside swapByReference: a = %d, b = %d\n", *a, *b);
+}
+
+int main() {
+    int x = 10, y = 20;
+
+    printf("Before swapByValue: x = %d, y = %d\n", x, y);
+    swapByValue(x, y);
+    printf("After swapByValue:  x = %d, y = %d\n\n", x, y);
+
+    printf("Before swapByReference: x = %d, y = %d\n", x, y);
+    swapByReference(&x, &y);
+    printf("After swapByReference:  x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+```
 # Output:
+<img width="520" height="309" alt="Screenshot 2025-11-18 221130" src="https://github.com/user-attachments/assets/2a9f3da7-eee4-4624-86a6-e9037c358742" />
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +110,37 @@
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+int fib(int n) {
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    return fib(n - 1) + fib(n - 2);
+}
+
+int main() {
+    int n;
+    printf("Enter n: ");
+    scanf("%d", &n);
+
+    if (n <= 0) {
+        printf("Please enter a positive integer.");
+        return 0;
+    }
+
+    printf("Fibonacci Series: ");
+    for (int i = 0; i < n; i++)
+        printf("%d ", fib(i));
+
+    return 0;
+}
+```
 # Output:
+<img width="497" height="256" alt="Screenshot 2025-11-18 221358" src="https://github.com/user-attachments/assets/baa60467-79a4-47f3-9470-8cbca116bdf1" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +182,51 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+void printSequence(int current, int upper) {
+    if (current > upper)
+        return;
+
+    printf("%d ", current);
+    printSequence(current + 2, upper);
+}
+
+int main() {
+    int lower, upper, choice;
+
+    printf("Enter lower limit: ");
+    scanf("%d", &lower);
+
+    printf("Enter upper limit: ");
+    scanf("%d", &upper);
+
+    printf("Choose 1 for Even, 2 for Odd: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        if (lower % 2 != 0)
+            lower++;
+        printf("Even sequence: ");
+        printSequence(lower, upper);
+    }
+    else if (choice == 2) {
+        if (lower % 2 == 0)
+            lower++;
+        printf("Odd sequence: ");
+        printSequence(lower, upper);
+    }
+    else {
+        printf("Invalid choice.");
+    }
+
+    return 0;
+}
+```
 # Output:
+<img width="429" height="293" alt="Screenshot 2025-11-18 221553" src="https://github.com/user-attachments/assets/333e40f7-49bd-4728-af5a-cca26af7e71f" />
+giv
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +268,37 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n = 5;
+    int sample[5] = {10, 20, 30, 40, 50};
+
+    int *ptr = (int*) calloc(n, sizeof(int));
+    int sum = 0, i;
+
+    for (i = 0; i < n; i++) {
+        ptr[i] = sample[i];
+        sum += ptr[i];
+    }
+
+    printf("Numbers: ");
+    for (i = 0; i < n; i++)
+        printf("%d ", ptr[i]);
+
+    printf("\nSum = %d\n", sum);
+
+    free(ptr);
+
+    return 0;
+}
+```
 # Output:
+<img width="450" height="238" alt="Screenshot 2025-11-18 221727" src="https://github.com/user-attachments/assets/88e6abf1-17db-4a62-b5c2-040936f8df27" />
+
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +334,28 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+void display(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+}
+
+int main() {
+    int n = 5;
+    int arr[5] = {10, 20, 30, 40, 50};
+
+    printf("Array elements: ");
+    display(arr, n);
+
+    return 0;
+}
+```
+
+
 # Output:
+<img width="415" height="185" alt="Screenshot 2025-11-18 221923" src="https://github.com/user-attachments/assets/3cf76a01-967e-415b-ace8-2cb7b5adb7fe" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
